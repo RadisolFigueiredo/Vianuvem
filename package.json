@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "A server for the Vianuvem Frontend Test",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
   "keywords": [
     "vianuvem"
   ],
@@ -11,5 +14,8 @@
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "clone": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
- }
+}

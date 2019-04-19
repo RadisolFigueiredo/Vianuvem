@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vianuvem</title>
+  </head>
+  <body>
+    <h1>Vianuvem Frontend Test</h1>
+    <ul style="list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: wrap;" 
+    id="images"></ul>
+  </body>
+  <script>
+    const req = new XMLHttpRequest();
+    req.open("GET", "/circles");
+    req.send();
+    req.onload = () => createListDinamic(JSON.parse(req.response));
+
+    const createListDinamic = circles => {
+      const ulImages = document.getElementById("images");
+      circles.map(circle => {
+        const listImage = document.createElement("li");
+        listImage.innerHTML = `
+          <img id="${circles.id}"
+            title="${circle.name}"
+            alt="Logo da empresa: ${circle.name}"
+            src="${circle.image}";
+            
+            style="border-color:${circle.color}; border-style: solid;
+            width:${circle.size}in;
+            border-radius:200px; 
+            border-width:10px;"
+          />
+        `;
+        ulImages.appendChild(listImage);
+      });
+    };
+  </script>
+</html>
